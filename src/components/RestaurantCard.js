@@ -1,11 +1,10 @@
 import { IMAGE_CDN_URL } from "../config";
-import { useEffect, useState } from "react";
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
   cuisines,
   avgRating,
-  feeDetails,
+  costForTwo,
 }) => {
   return (
     <div className="card">
@@ -14,12 +13,8 @@ const RestaurantCard = ({
       <h3>{cuisines.join(", ")}</h3>
       <h4>Ratings: {avgRating} stars</h4>
       <h4>
-        <b>Price : Rs. {feeDetails.totalFee}</b>
+        <b>Offer : {costForTwo}</b>
       </h4>
-
-      {/* <button type="button" onClick={() => handleCart}>
-        Add to Cart
-      </button> */}
     </div>
   );
 };

@@ -30,3 +30,11 @@
 .filter {
     padding: 10px;
 }
+
+.shimmer {
+    background: lightgrey;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+}
