@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const Title = () => {
   //   return <h1 id="title">Mega Meals</h1>;
@@ -10,20 +11,26 @@ const Title = () => {
         src="https://www.logomaker.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6kh...ODpBFMkRvFwXs1M3EMoAJtlikuhvFs...fgy "
       />
     </a>
-  );
-};
+  )
+}
 
 const Header = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <div className="header">
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>
@@ -35,7 +42,7 @@ const Header = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
