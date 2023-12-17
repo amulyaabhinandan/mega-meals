@@ -13,13 +13,14 @@ const RestaurantMenu = () => {
 
   async function getRestaurantInfo() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5101345&lng=73.92277299999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&menuId=" +
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5158057&lng=73.9271644&restaurantId=" +
         resId
     )
     const json = await data.json()
     console.log("Meny Dataaaaa: ", json)
     setRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards
+      // json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card?.card?.itemCards[1]
     )
     console.log("Menuuuuuuuuu: ", restaurant)
   }
@@ -29,14 +30,30 @@ const RestaurantMenu = () => {
   ) : (
     <div className="menu">
       <div>
-        <h1>Restaurant id: {resId}</h1>
-        <h2>{restaurant[0]?.name}</h2>
-        <img src={IMAGE_CDN_URL + restaurant[0].info.cloudinaryImageId} />
-        <h3>{restaurant?.info?.areaName}</h3>
+        <h4>Restaurant id: {resId}</h4>
+        <h2>{restaurant[0]?.card.card.info.name}</h2>
+        <img
+          src={IMAGE_CDN_URL + restaurant[0]?.card.card.info.cloudinaryImageId}
+        />
+        <h4>
+          Address: {restaurant[0]?.card.card.info.areaName},{" "}
+          {restaurant[0]?.card.card.info.city}
+        </h4>
+        <h4>Price: {restaurant[0]?.card.card.info.costForTwoMessage}</h4>
+        <h4>Average Rating: {restaurant[0]?.card.card.info.avgRating}</h4>
       </div>
       <div>
         <h1>Menu</h1>
-        <ul>{restaurant?.cuisines}</ul>
+        <ul>
+          {console.log(
+            "menu",
+            restaurant?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+          )}
+          {restaurant?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
+            (item) =>
+              item?.card?.card?.title ? <li>{item?.card?.card?.title}</li> : ""
+          )}
+        </ul>
       </div>
     </div>
   )
