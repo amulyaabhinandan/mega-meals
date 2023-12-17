@@ -38,7 +38,6 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5101345&lng=73.92277299999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     )
     const json = await apiData.json()
-    console.log("data", json)
 
     setAllRestaurants(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants

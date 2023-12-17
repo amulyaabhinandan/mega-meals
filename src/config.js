@@ -1,5 +1,8 @@
 export const IMAGE_CDN_URL =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"
+
+export const FETCH_MENU_URL =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5158057&lng=73.9271644&restaurantId="
 
 export const restaurantList = [
   {
@@ -954,4 +957,4 @@ export const restaurantList = [
     },
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
-];
+]
