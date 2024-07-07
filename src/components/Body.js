@@ -40,10 +40,10 @@ const Body = () => {
     const json = await apiData.json()
 
     setAllRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     )
     setFilteredRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     )
   }
 
@@ -54,9 +54,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="filter">
+      <div className="p-2 m-2 shadow-md">
         <input
           type="text"
+          className="border-gray-800 p-2 m-2"
           placeholder="Type restaurant name"
           value={searchText}
           onChange={(e) => {
@@ -64,6 +65,7 @@ const Body = () => {
           }}
         />
         <button
+          className="border-gray-800 p-2 m-2 bg-red-800 hover:bg-black text-white rounded-md"
           onClick={() => {
             const data = handleFilter(searchText, allRestaurants)
             setFilteredRestaurants(data)
@@ -72,7 +74,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filteredRestaurants?.length > 0
           ? filteredRestaurants.map((restaurant) => {
               return (

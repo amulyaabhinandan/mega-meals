@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="menu">
+    <div className="flex">
       <div>
         <h4>Restaurant id: {resId}</h4>
         <h2>{restaurant[0]?.card.card.info.name}</h2>

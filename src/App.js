@@ -10,6 +10,8 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
 import RestaurantMenu from "./components/RestaurantMenu"
 import ProfileClass from "./components/ProfileClass"
 import Shimmer from "./components/Shimmer"
+import { Provider } from "react-redux"
+import store from "./utils/store"
 // import Instamart from "./components/Instamart"
 
 const Instamart = lazy(() => import("./components/Instamart"))
@@ -26,11 +28,11 @@ const About = lazy(() => import("./components/About"))
 
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   )
 }
 
